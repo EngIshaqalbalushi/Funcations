@@ -78,9 +78,19 @@
 
                         prite(price1.ToString());
                         
-                        
                         break;
-                    case 5: gradingSytem(); break;
+
+
+                    case 5:
+                        Console.Write("Enter student score: ");
+                        double score = double.Parse(Console.ReadLine());
+                        Console.Write("The student's grade is: " );
+
+
+                       char mark= gradingSytem(score);
+
+                        prite(mark.ToString());
+                        break;
                     case 6: SwapTowNumber(); break;
                     case 7: DaysToWeeksDaysConverter(); break;
                     case 8: ElecticityBillCalculator(); break;
@@ -184,13 +194,34 @@
 
         }
 
-        public static void gradingSytem()
+        public static char gradingSytem(double score)
         {
+            char grade;
+
+            if (score >= 90)
+                grade = 'A';
+            else if (score >= 80)
+                grade = 'B';
+            else if (score >= 70)
+                grade = 'C';
+            else if (score >= 60)
+                grade = 'D';
+            else
+                grade = 'F';
+
+            return grade;
 
         }
 
         public static void SwapTowNumber()
         {
+
+         
+
+
+
+
+
 
         }
 
