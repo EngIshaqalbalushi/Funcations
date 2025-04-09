@@ -110,13 +110,37 @@
                         Console.Write("Enter number of days: ");
                         int days = int.Parse(Console.ReadLine());
                        
-                        DaysToWeeksDaysConverter();
+                      string weeks=  DaysToWeeksDaysConverter(days);
+
+                        prite(weeks);
                         
+                        break;
+                    case 8:
+
+                         Console.WriteLine("Enter Number of Unit ");
+                      double  NUnit = double.Parse(Console.ReadLine());
+
+
+                     prite(ElecticityBillCalculator(NUnit))  ;
                         
                         
                         break;
-                    case 8: ElecticityBillCalculator(); break;
-                    case 9: SimpleCalculator(); break;
+                    case 9:
+                        Console.Write("Enter first number: ");
+                        double num4 = double.Parse(Console.ReadLine());
+                        Console.Write("Enter operator (+, -, *, /): ");
+                        char op = Console.ReadKey().KeyChar;
+                        Console.Write("\nEnter second number: ");
+                        double num5 = double.Parse(Console.ReadLine());
+
+
+
+
+                      prite(SimpleCalculator(num4, num5, op))  ;
+
+                        
+                        
+                        break;
                     case 0: return;
                     default: Console.WriteLine("Invalid choice! Try again."); break;
                 }
@@ -258,13 +282,54 @@
 
         }
 
-        public static void ElecticityBillCalculator()
+        public static string ElecticityBillCalculator(double NUnit)
         {
 
+
+
+            double result;
+
+            if (NUnit < 0)
+            {
+                return ("Enter Number of Unit correctly 1 or more");
+            }
+            else if (1 <= NUnit && NUnit <= 100)
+            {
+                result = NUnit * 0.5;
+                return ("The price is: $" + result);
+            }
+            else if (101 <= NUnit && NUnit <= 300)
+            {
+                result = NUnit * 0.75;
+                return ("The price is: $" + result);
+            }
+            else
+            {
+                result = NUnit * 1;
+                return("The price is: $" + result);
+
+
+
+
+
+            }
         }
 
-        public static void SimpleCalculator()
+        public static string SimpleCalculator(double num1,double num2 ,char op)
         {
+
+            switch (op)
+            {
+                case '+': return($"Result: {num1 + num2}"); break;
+                case '-': return ($"Result: {num1 - num2}"); break;
+                case '*': return ($"Result: {num1 * num2}"); break;
+                case '/': return (num2 != 0 ? $"Result: {num1 / num2}" : "Error: Division by zero!"); break;
+                default: return ("Invalid operator!"); break;
+            }
+
+
+
+
 
         }
 
