@@ -91,8 +91,30 @@
 
                         prite(mark.ToString());
                         break;
-                    case 6: SwapTowNumber(); break;
-                    case 7: DaysToWeeksDaysConverter(); break;
+                    case 6:
+
+                        Console.Write("Enter first number: ");
+                        double a = int.Parse(Console.ReadLine());
+
+                        Console.Write("Enter second number: ");
+                        double b = int.Parse(Console.ReadLine());
+                       
+                        (a, b) = SwapTwoNumbers(a, b);
+
+                        prite((a, b).ToString());
+
+                        break;
+
+                    case 7:
+
+                        Console.Write("Enter number of days: ");
+                        int days = int.Parse(Console.ReadLine());
+                       
+                        DaysToWeeksDaysConverter();
+                        
+                        
+                        
+                        break;
                     case 8: ElecticityBillCalculator(); break;
                     case 9: SimpleCalculator(); break;
                     case 0: return;
@@ -213,20 +235,26 @@
 
         }
 
-        public static void SwapTowNumber()
+        public static  (double,double) SwapTwoNumbers(double a,double b)
         {
 
-         
-
-
-
-
+            return (b, a);
 
 
         }
 
-        public static void DaysToWeeksDaysConverter()
+
+
+
+
+        public static string DaysToWeeksDaysConverter(int days)
         {
+
+            int weeks = days / 7;
+            int remainingDays = days % 7;
+
+            return days + " days = " + weeks + " week(s) and " + remainingDays + " day(s)";
+
 
         }
 
